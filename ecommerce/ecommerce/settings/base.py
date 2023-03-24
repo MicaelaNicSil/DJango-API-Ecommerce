@@ -6,7 +6,7 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = "d2cb=&g)60i5vv13cdhqtbwu6x$3qd2hi36z6%$drpst)5=o)p"
 
 DEBUG = True
 
@@ -19,8 +19,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     # External Packages
-    "rest_framework"
+    "rest_framework",
+    "drf_spectacular",
     #Internal Apps
+    "ecommerce.product",
 ]
 
 MIDDLEWARE = [
@@ -82,4 +84,10 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-REST_FRAMEWORK = {}
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Django DRF Ecommerce",
+}
